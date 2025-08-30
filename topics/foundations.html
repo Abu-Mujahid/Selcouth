@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foundations of Holistic Health — Selcouth | سيلكوت</title>
+  <link rel="icon" href="../assets/logo.svg" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Selcouth logo" class="logo"/>
+      <span class="brand-text">Selcouth <span class="divider">|</span> سيلكوت</span>
+    </a>
+    <nav class="site-actions">
+      <button id="langToggle" class="btn">AR</button>
+      <button id="themeToggle" class="btn">Dark</button>
+      <a id="telegramLink" class="btn primary" href="#" target="_blank" rel="noopener">Telegram</a>
+    </nav>
+  </header>
+
+  <main class="article">
+    <article>
+      <header class="article-header">
+        <h1 data-i18n="topic_foundations">Foundations of Holistic Health</h1>
+        <p class="article-sub" data-i18n="topic_foundations_desc">Core principles, frameworks, and how to think clearly about wellbeing.</p>
+        <div class="meta">
+          <span id="readingTime"></span>
+        </div>
+      </header>
+
+      <section class="key-takeaways">
+        <h2 data-i18n="key_takeaways">Key takeaways</h2>
+        <ul>
+          <li data-i18n="foundations_point_1">Holistic health considers body, mind, environment, and community.</li>
+          <li data-i18n="foundations_point_2">Clarity comes from transparent sources and careful reasoning.</li>
+          <li data-i18n="foundations_point_3">Your context matters—seek qualified guidance for personal decisions.</li>
+        </ul>
+      </section>
+
+      <section class="content">
+        <h2 data-i18n="foundations_section_intro">Introduction</h2>
+        <p data-i18n="foundations_section_intro_body">
+          This topic lays out base concepts and a way to evaluate claims. We’ll favor clear language, acknowledge uncertainty, and point to sources.
+        </p>
+
+        <h2 data-i18n="foundations_section_frameworks">Frameworks</h2>
+        <p data-i18n="foundations_section_frameworks_body">
+          We look at sleep, nutrition, movement, stress, environment, and community as interdependent systems. Future articles will expand each area.
+        </p>
+
+        <aside class="note">
+          <strong data-i18n="disclaimer_title">Disclaimer:</strong>
+          <span data-i18n="disclaimer_text">This page is educational and not medical advice. Consult qualified professionals.</span>
+        </aside>
+      </section>
+
+      <section class="sources">
+        <h2 data-i18n="sources_title">Sources & Further Reading</h2>
+        <ol>
+          <li><a href="#" rel="nofollow noopener" target="_blank" data-i18n="source_placeholder">[Add your primary sources here]</a></li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <div id="readProgress"></div>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Selcouth | سيلكوت</p>
+    <nav class="footer-nav">
+      <a href="../index.html#about" data-i18n="footer_about">About</a>
+      <a href="#" id="footerTelegram" data-i18n="footer_telegram">Telegram</a>
+      <a href="#" data-i18n="footer_contact">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="../scripts/i18n.js"></script>
+  <script src="../scripts/main.js"></script>
+  <script>
+    // Simple reading time estimate:
+    (function(){
+      const wordsPerMinute = 225;
+      const text = document.querySelector('main').innerText || '';
+      const words = text.trim().split(/\s+/).length;
+      const minutes = Math.max(1, Math.round(words / wordsPerMinute));
+      document.getElementById('readingTime').textContent = minutes + ' min read';
+    })();
+  </script>
+</body>
+</html>
