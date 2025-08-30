@@ -18,7 +18,7 @@
   });
 
   // Telegram links
-  const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl';
+  const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl'; // invite link (private channel)
   document.querySelectorAll('#telegramLink,#footerTelegram').forEach(a => a && (a.href = TELEGRAM_URL));
 
   // Simple search filter for topic cards (homepage)
@@ -45,7 +45,7 @@
     onScroll();
   }
 
-  // Topic page helpers: reading time + Telegram embeds
+  // Topic page helpers: reading time + author credit + Telegram embeds placeholder
   const main = document.querySelector('main.article');
   if (main) {
     // Reading time
@@ -58,28 +58,27 @@
       rt.textContent = minutes + ' min read';
     }
 
+    // Curator credit (auto-append to the meta line)
+    const CURATOR_NAME = 'Umm Ḥanẓalah';
+    const meta = document.querySelector('.article-header .meta');
+    if (meta && !meta.querySelector('.curator')) {
+      const sep = document.createElement('span');
+      sep.textContent = ' • ';
+      const curator = document.createElement('span');
+      curator.className = 'curator';
+      curator.textContent = `Curated by ${CURATOR_NAME}`;
+      meta.appendChild(sep);
+      meta.appendChild(curator);
+    }
+
     // Telegram embeds
-    // IMPORTANT: For embeds to work, you need a PUBLIC channel handle like 'Selcouth'.
-    // Then add data-post-ids="123,124" to .tg-embeds and set TELEGRAM_HANDLE below.
-    const TELEGRAM_HANDLE = ''; // e.g., 'Selcouth' (no @). Leave empty for private/invite-only channels.
+    // Note: Embeds require a PUBLIC channel handle; your channel is private, so we show a helper.
     const containers = document.querySelectorAll('.tg-embeds[data-post-ids]');
     containers.forEach(container => {
-      const ids = (container.getAttribute('data-post-ids') || '').split(',').map(s => s.trim()).filter(Boolean);
-      if (!TELEGRAM_HANDLE || ids.length === 0) {
-        const help = document.createElement('div');
-        help.className = 'helper';
-        help.innerHTML = 'Telegram embeds will appear here once a public channel handle and post IDs are provided.';
-        container.appendChild(help);
-        return;
-      }
-      ids.forEach(id => {
-        const s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://telegram.org/js/telegram-widget.js?22';
-        s.setAttribute('data-telegram-post', `${TELEGRAM_HANDLE}/${id}`);
-        s.setAttribute('data-width', '100%');
-        container.appendChild(s);
-      });
+      const help = document.createElement('div');
+      help.className = 'helper';
+      help.innerHTML = 'Telegram embeds will appear here if the channel becomes public. For now, use the Telegram link above.';
+      container.appendChild(help);
     });
   }
 })();
