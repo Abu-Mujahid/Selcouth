@@ -1,36 +1,73 @@
-# Selcouth | سيلكوت
+# Selcouth | سيلكوت — Truth shall always prevail.
 
-Truth shall always prevail.
+Selcouth is a reading hub for perspectives on holistic health, critical inquiry into prevailing medical narratives, and investigations of incentives that shape public claims.
 
-Research and curation by **Umm Ḥanẓalah**. This site organizes her work from the Selcouth Telegram channel.
+Research and curation by **Umm Ḥanẓalah**.
 
-## Deploying to GitHub Pages
+Live site:
+- Project URL: https://abu-mujahid.github.io/Selcouth/
+- Planned custom domain: https://selcouth.io (when DNS is pointed)
 
-### Option 1 — Custom domain (selcouth.io)
-1. Make sure a `CNAME` file exists at the repo root with the single line:
-   ```
-   selcouth.io
-   ```
-2. GitHub → Repo → Settings → Pages:
-   - Build and deployment: Source = "Deploy from a branch"
-   - Branch = `main`, Folder = `/ (root)`.
-3. DNS: In your domain host, add A records to these GitHub Pages IPs:
-   - 185.199.108.153
-   - 185.199.109.153
-   - 185.199.110.153
-   - 185.199.111.153
-   (Optional AAAA for IPv6: 2606:50c0:8000::153, ::8001::153, ::8002::153, ::8003::153)
-4. Back in Settings → Pages, set Custom domain to `selcouth.io` and enable "Enforce HTTPS".
-5. DNS can take minutes–24h. Use the temporary Pages URL in the meantime.
+## About
 
-### Option 2 — GitHub Pages default URL
-- With this repo name, your site will be available at:
-  ```
-  https://abu-mujahid.github.io/Selcouth/
-  ```
-- If you want the root `https://abu-mujahid.github.io/`, create a separate repo named exactly `Abu-Mujahid.github.io` and put the site there.
+“Selcouth” is an old word meaning rare, unfamiliar, and wondrous—something seldom seen that invites curiosity. This spirit guides the project: we examine the whole human—body, mind, environment, and community—asking careful questions where easy answers are common.
 
-## Notes
-- The Telegram channel is private; embeds are placeholders only.
-- Topic pages automatically display “Curated by Umm Ḥanẓalah” next to the reading time.
-- All content is educational and not medical advice.
+The site organizes posts into clear topic pages with:
+- Key takeaways
+- Compact post cards (summaries and links)
+- Sources and further reading
+- A consistent disclaimer (educational only; not medical advice)
+
+## Research, Authorship, and Credits
+
+- Research and curation: **Umm Ḥanẓalah** — a Muslim student of holistic health and naturopathic practice. She is the author of the research shared here and the admin of the Selcouth Telegram channel.
+- Website creation and structure: **Abu‑Mujahid**. I built and organized the website only; I do not claim credit for the posts, research, content, or information. All credit for content goes to Umm Ḥanẓalah.
+
+If you reference material from this site, please attribute it to Umm Ḥanẓalah and link back to the relevant page or Telegram post.
+
+## Telegram
+
+- Channel: invite‑only (private). Visitors can join via the invite link from the site’s header.
+- Embeds: Because the channel is private, in‑page embeds are placeholders. Direct “View Telegram post” links are provided on post cards.
+
+## Site Structure and Topics
+
+Homepage shows an overview and a searchable grid of topics. Each topic page uses compact “post cards” to present entries. Current topics include:
+
+- General
+- Cancer & Cure
+- Terrain & Toxicity
+- Circadian biology, nn‑EMFs & Radiation
+- Medical Refutations
+- Books & Documentaries
+- Scamdemics & Vaccines
+- Nourishing Holism
+- Them…
+- Biochemical Interferers
+- Vitamins & Supplements
+- Symptoms vs Root Cause
+- The Lymphatic System
+- Germ Theory & Vir‑Lie‑ogy
+- Homestead Hive
+- Natural Healing
+- Holistic Dentistry
+- Offstream Nutrition
+- Modern Diseases
+- The Heart & the Lungs
+
+## Contact
+
+For questions about the website build or to report issues:
+- Email: ravencorp.tech@gmail.com
+
+For questions about the research/content, please reach out via the Telegram channel administered by Umm Ḥanẓalah.
+
+## Acknowledgements
+
+- Wordmark: assets/selcouth-wordmark.png
+- Telegram button icon credit: Telegram icons by **Ruslan Babkin** — Flaticon
+  - https://www.flaticon.com/free-icons/telegram
+
+## Disclaimer
+
+All content is for educational purposes only and is not medical advice. Always consult qualified professionals for personal health decisions.
