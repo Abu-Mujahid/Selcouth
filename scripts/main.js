@@ -1,5 +1,4 @@
 (function(){
-  const html = document.documentElement;
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
@@ -18,36 +17,11 @@
     applyTheme(next);
   });
 
-  // Language & RTL toggle
-  const langToggle = document.getElementById('langToggle');
-  const setLang = (lang) => {
-    const dict = window.SELCOUTH_I18N?.[lang] || {};
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const key = el.getAttribute('data-i18n');
-      if (dict[key]) el.textContent = dict[key];
-    });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
-      const key = el.getAttribute('data-i18n-placeholder');
-      if (dict[key]) el.setAttribute('placeholder', dict[key]);
-    });
-    html.lang = lang === 'ar' ? 'ar' : 'en';
-    html.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    localStorage.setItem('lang', lang);
-    if (langToggle) langToggle.textContent = lang === 'ar' ? 'EN' : 'AR';
-  };
-  const savedLang = localStorage.getItem('lang') || 'en';
-  setLang(savedLang);
-  if (langToggle) langToggle.addEventListener('click', ()=>{
-    const next = html.lang === 'ar' ? 'en' : 'ar';
-    setLang(next);
-  });
+  // Telegram links
+  const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl';
+  document.querySelectorAll('#telegramLink,#footerTelegram').forEach(a => a && (a.href = TELEGRAM_URL));
 
-  // Telegram link placeholder - update when you provide handle
-  const TELEGRAM_URL = '#'; // e.g., 'https://t.me/yourChannelHandle'
-  const telegramEls = [document.getElementById('telegramLink'), document.getElementById('footerTelegram')].filter(Boolean);
-  telegramEls.forEach(a => { a.href = TELEGRAM_URL; });
-
-  // Search filter for topic cards
+  // Simple search filter for topic cards (homepage)
   const search = document.getElementById('search');
   if (search) {
     search.addEventListener('input', (e)=>{
@@ -69,5 +43,43 @@
     };
     document.addEventListener('scroll', onScroll, {passive:true});
     onScroll();
+  }
+
+  // Topic page helpers: reading time + Telegram embeds
+  const main = document.querySelector('main.article');
+  if (main) {
+    // Reading time
+    const rt = document.getElementById('readingTime');
+    if (rt) {
+      const wordsPerMinute = 225;
+      const text = main.innerText || '';
+      const words = text.trim().split(/\s+/).length;
+      const minutes = Math.max(1, Math.round(words / wordsPerMinute));
+      rt.textContent = minutes + ' min read';
+    }
+
+    // Telegram embeds
+    // IMPORTANT: For embeds to work, you need a PUBLIC channel handle like 'Selcouth'.
+    // Then add data-post-ids="123,124" to .tg-embeds and set TELEGRAM_HANDLE below.
+    const TELEGRAM_HANDLE = ''; // e.g., 'Selcouth' (no @). Leave empty for private/invite-only channels.
+    const containers = document.querySelectorAll('.tg-embeds[data-post-ids]');
+    containers.forEach(container => {
+      const ids = (container.getAttribute('data-post-ids') || '').split(',').map(s => s.trim()).filter(Boolean);
+      if (!TELEGRAM_HANDLE || ids.length === 0) {
+        const help = document.createElement('div');
+        help.className = 'helper';
+        help.innerHTML = 'Telegram embeds will appear here once a public channel handle and post IDs are provided.';
+        container.appendChild(help);
+        return;
+      }
+      ids.forEach(id => {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://telegram.org/js/telegram-widget.js?22';
+        s.setAttribute('data-telegram-post', `${TELEGRAM_HANDLE}/${id}`);
+        s.setAttribute('data-width', '100%');
+        container.appendChild(s);
+      });
+    });
   }
 })();
