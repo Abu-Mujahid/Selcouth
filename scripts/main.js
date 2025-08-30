@@ -108,9 +108,9 @@
     });
   }
 
-  // Reveal-on-scroll animations (added .post-card)
+  // Reveal-on-scroll animations (include .post-item)
   const revealEls = document.querySelectorAll(
-    '.topic-card, .post-card, .cta-group .btn, .hero .intro p, .about, .article .key-takeaways, .article .content, .article .sources'
+    '.topic-card, .post-item, .cta-group .btn, .hero .intro p, .about, .article .key-takeaways, .article .content, .article .sources'
   );
   if ('IntersectionObserver' in window && revealEls.length){
     const obs = new IntersectionObserver((entries, o)=>{
