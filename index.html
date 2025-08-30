@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selcouth | سيلكوت — Truth shall always prevail.</title>
+  <meta name="description" content="Selcouth | سيلكوت — A space for thoughtful, evidence-minded exploration of holistic health. Truth shall always prevail." />
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img src="assets/logo.svg" alt="Selcouth logo" class="logo"/>
+      <span class="brand-text">Selcouth <span class="divider">|</span> سيلكوت</span>
+    </a>
+
+    <nav class="site-actions">
+      <button id="langToggle" class="btn" aria-label="Toggle language">AR</button>
+      <button id="themeToggle" class="btn" aria-label="Toggle dark mode">Dark</button>
+      <a id="telegramLink" class="btn primary" href="#" target="_blank" rel="noopener">Telegram</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 data-i18n="hero_title">Selcouth | سيلكوت</h1>
+      <p class="tagline" data-i18n="tagline">Truth shall always prevail.</p>
+
+      <p class="intro" data-i18n="intro_paragraph_1">
+        “Selcouth” means rare, unfamiliar, and wondrous—inviting curiosity. We explore whole‑person health with care and clarity.
+      </p>
+      <p class="intro" data-i18n="intro_paragraph_2">
+        We examine holistic perspectives, encourage discernment, and value transparent sourcing. Nothing here is medical advice—please consult qualified professionals.
+      </p>
+
+      <div class="cta-group">
+        <a href="#topics" class="btn primary" data-i18n="cta_explore_topics">Explore Topics</a>
+        <a href="#about" class="btn" data-i18n="cta_learn_more">Learn More</a>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <label for="search" class="sr-only" data-i18n="search_label">Search topics</label>
+      <input id="search" type="search" placeholder="Search topics..." data-i18n-placeholder="search_placeholder" />
+    </section>
+
+    <section id="topics" class="topics-grid">
+      <article class="topic-card" data-tags="foundations basics principles">
+        <h3><a href="topics/foundations.html" data-i18n="topic_foundations">Foundations of Holistic Health</a></h3>
+        <p data-i18n="topic_foundations_desc">Core principles, frameworks, and how to think clearly about wellbeing.</p>
+      </article>
+
+      <article class="topic-card" data-tags="nutrition diet metabolic">
+        <h3><a href="#" data-i18n="topic_nutrition">Nutrition & Metabolic Health</a></h3>
+        <p data-i18n="topic_nutrition_desc">Food quality, metabolism, and practical, evidence-minded guides.</p>
+      </article>
+
+      <article class="topic-card" data-tags="sleep circadian rhythm">
+        <h3><a href="#" data-i18n="topic_sleep">Sleep & Circadian Rhythm</a></h3>
+        <p data-i18n="topic_sleep_desc">Rest, light, and recovery for long-term vitality.</p>
+      </article>
+
+      <article class="topic-card" data-tags="movement breath exercise">
+        <h3><a href="#" data-i18n="topic_movement">Movement & Breath</a></h3>
+        <p data-i18n="topic_movement_desc">Approaches to movement, breathing, and posture.</p>
+      </article>
+
+      <article class="topic-card" data-tags="mindfulness stress mental">
+        <h3><a href="#" data-i18n="topic_mindfulness">Mindfulness & Mental Wellbeing</a></h3>
+        <p data-i18n="topic_mindfulness_desc">Mind-body practices and skills for resilience.</p>
+      </article>
+
+      <article class="topic-card" data-tags="environment toxins detox">
+        <h3><a href="#" data-i18n="topic_environment">Environmental Health & Detox</a></h3>
+        <p data-i18n="topic_environment_desc">Air, water, materials, and practical exposure reduction.</p>
+      </article>
+
+      <article class="topic-card" data-tags="herbal remedies traditional">
+        <h3><a href="#" data-i18n="topic_herbal">Herbal & Traditional Remedies</a></h3>
+        <p data-i18n="topic_herbal_desc">Traditions, safety considerations, and source transparency.</p>
+      </article>
+
+      <article class="topic-card" data-tags="research evidence studies">
+        <h3><a href="#" data-i18n="topic_research">Research & Evidence Reviews</a></h3>
+        <p data-i18n="topic_research_desc">Methodology, data literacy, and balanced summaries.</p>
+      </article>
+
+      <article class="topic-card" data-tags="industry policy analysis">
+        <h3><a href="#" data-i18n="topic_policy">Industry & Policy Analysis</a></h3>
+        <p data-i18n="topic_policy_desc">Incentives, regulation, and interpreting public claims.</p>
+      </article>
+
+      <article class="topic-card" data-tags="community stories q&a">
+        <h3><a href="#" data-i18n="topic_community">Community Stories & Q&amp;A</a></h3>
+        <p data-i18n="topic_community_desc">Experiences, reflections, and thoughtful discussion.</p>
+      </article>
+    </section>
+
+    <section id="about" class="about">
+      <h2 data-i18n="about_title">About Selcouth</h2>
+      <p data-i18n="about_body_1">
+        Our goal is to present clear, considerate insights into holistic health and to encourage evidence-minded inquiry.
+      </p>
+      <p data-i18n="about_body_2">
+        We include sources, describe uncertainties, and welcome respectful dialogue. For personal health decisions, consult qualified professionals.
+      </p>
+      <div class="note" role="note">
+        <strong data-i18n="disclaimer_title">Disclaimer:</strong>
+        <span data-i18n="disclaimer_text">This site is educational and not medical advice. Always consult a qualified professional.</span>
+      </div>
+    </section>
+  </main>
+
+  <div id="readProgress"></div>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Selcouth | سيلكوت</p>
+    <nav class="footer-nav">
+      <a href="#about" data-i18n="footer_about">About</a>
+      <a href="#" id="footerTelegram" data-i18n="footer_telegram">Telegram</a>
+      <a href="#" data-i18n="footer_contact">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="scripts/i18n.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
