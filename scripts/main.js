@@ -2,23 +2,49 @@
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // Theme toggle
+  // Helpers: theme icons (inline SVG)
+  const sunSVG = `
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+      <g stroke="currentColor" stroke-linecap="round" stroke-width="1.8">
+        <path d="M12 2v2.6M12 19.4V22M4.6 12H2M22 12h-2.6M5.76 5.76 4 4M20 20l-1.76-1.76M18.24 5.76 20 4M4 20l1.76-1.76"/>
+      </g>
+    </svg>`;
+  const moonSVG = `
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M20.7 14.5A8.7 8.7 0 0 1 9.5 3.3 8.7 8.7 0 1 0 20.7 14.5Z" stroke="currentColor" stroke-width="1.8" />
+    </svg>`;
+
   const themeToggle = document.getElementById('themeToggle');
-  const applyTheme = (mode) => {
+  function renderThemeButton(mode){
+    if (!themeToggle) return;
+    themeToggle.classList.add('icon-btn');
+    // Show icon reflecting the CURRENT mode
+    const icon = mode === 'light' ? sunSVG : moonSVG;
+    const sr = `<span class="sr-only">Toggle theme</span>`;
+    themeToggle.innerHTML = sr + icon;
+    themeToggle.setAttribute('aria-label', 'Toggle theme');
+    themeToggle.setAttribute('title', 'Toggle theme');
+  }
+  function applyTheme(mode){
     if (mode === 'light') document.documentElement.classList.add('light');
     else document.documentElement.classList.remove('light');
     localStorage.setItem('theme', mode);
-    if (themeToggle) themeToggle.textContent = mode === 'light' ? 'Dark' : 'Light';
-  };
-  const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    renderThemeButton(mode);
+  }
+  const savedTheme = localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
   applyTheme(savedTheme);
-  if (themeToggle) themeToggle.addEventListener('click', () => {
-    const next = document.documentElement.classList.contains('light') ? 'dark' : 'light';
-    applyTheme(next);
-  });
 
-  // Telegram links
-  const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl'; // invite link (private channel)
+  if (themeToggle){
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.classList.contains('light') ? 'dark' : 'light';
+      applyTheme(next);
+    });
+  }
+
+  // Telegram links (private channel invite)
+  const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl';
   document.querySelectorAll('#telegramLink,#footerTelegram').forEach(a => a && (a.href = TELEGRAM_URL));
 
   // Simple search filter for topic cards (homepage)
@@ -45,7 +71,7 @@
     onScroll();
   }
 
-  // Topic page helpers: reading time + author credit + Telegram embeds placeholder
+  // Topic page helpers: reading time + curator credit + Telegram embed placeholder
   const main = document.querySelector('main.article');
   if (main) {
     // Reading time
@@ -57,8 +83,7 @@
       const minutes = Math.max(1, Math.round(words / wordsPerMinute));
       rt.textContent = minutes + ' min read';
     }
-
-    // Curator credit (auto-append to the meta line)
+    // Curator credit
     const CURATOR_NAME = 'Umm Ḥanẓalah';
     const meta = document.querySelector('.article-header .meta');
     if (meta && !meta.querySelector('.curator')) {
@@ -70,9 +95,7 @@
       meta.appendChild(sep);
       meta.appendChild(curator);
     }
-
-    // Telegram embeds
-    // Note: Embeds require a PUBLIC channel handle; your channel is private, so we show a helper.
+    // Telegram embeds helper (private channel)
     const containers = document.querySelectorAll('.tg-embeds[data-post-ids]');
     containers.forEach(container => {
       const help = document.createElement('div');
@@ -80,5 +103,27 @@
       help.innerHTML = 'Telegram embeds will appear here if the channel becomes public. For now, use the Telegram link above.';
       container.appendChild(help);
     });
+  }
+
+  // Reveal-on-scroll animations to make the site feel alive
+  const revealEls = document.querySelectorAll(
+    '.topic-card, .cta-group .btn, .hero .intro p, .about, .article .key-takeaways, .article .content, .article .sources'
+  );
+  if ('IntersectionObserver' in window && revealEls.length){
+    const obs = new IntersectionObserver((entries, o)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          o.unobserve(entry.target);
+        }
+      });
+    }, {rootMargin: '0px 0px -10% 0px', threshold: 0.1});
+    revealEls.forEach(el=>{
+      el.classList.add('reveal');
+      obs.observe(el);
+    });
+  } else {
+    // Fallback: ensure visible
+    revealEls.forEach(el=>el.classList.add('is-visible'));
   }
 })();
