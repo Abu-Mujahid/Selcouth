@@ -46,7 +46,7 @@
   const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl';
   document.querySelectorAll('#telegramLink,#footerTelegram').forEach(a => a && (a.href = TELEGRAM_URL));
 
-  // Make header Telegram button icon-only using the PNG at assets/telegram.png
+  // Make header Telegram button icon-only using PNG at assets/telegram.png
   const headerTg = document.getElementById('telegramLink');
   if (headerTg){
     headerTg.classList.add('icon-btn'); // keeps .btn.primary styles from HTML
@@ -54,6 +54,16 @@
     headerTg.setAttribute('title', 'Open Telegram channel');
     headerTg.innerHTML = `<span class="sr-only">Open Telegram channel</span><img src="assets/telegram.png" alt="" />`;
   }
+
+  // Centralize CONTACT email across all pages
+  const CONTACT_EMAIL = 'ravencorp.tech@gmail.com';
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+    a.href = 'mailto:' + CONTACT_EMAIL;
+    if (a.textContent.trim().toLowerCase() === 'contact') {
+      a.setAttribute('aria-label', 'Email ' + CONTACT_EMAIL);
+      a.title = 'Email ' + CONTACT_EMAIL;
+    }
+  });
 
   // Simple search filter for topic cards (homepage)
   const search = document.getElementById('search');
@@ -123,7 +133,7 @@
         }
       });
     }, {rootMargin: '0px 0px -10% 0px', threshold: 0.1});
-  revealEls.forEach(el=>{ el.classList.add('reveal'); obs.observe(el); });
+    revealEls.forEach(el=>{ el.classList.add('reveal'); obs.observe(el); });
   } else {
     revealEls.forEach(el=>el.classList.add('is-visible'));
   }
