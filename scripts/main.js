@@ -2,6 +2,19 @@
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
+  // Compute a stable site base (works on root, topics, subpages, custom domain, or GitHub Pages project URL)
+  const scriptEl = document.currentScript;
+  let SITE_BASE = '';
+  if (scriptEl && scriptEl.src) {
+    // e.g., https://abu-mujahid.github.io/Selcouth/scripts/main.js -> https://abu-mujahid.github.io/Selcouth/
+    SITE_BASE = scriptEl.src.split('/scripts/')[0] + '/';
+  } else {
+    // Fallback: try to infer from favicon <link>; else root
+    const iconHref = document.querySelector('link[rel="icon"]')?.href || '/';
+    SITE_BASE = iconHref.replace(/assets\/.*$/,'');
+  }
+  const TG_ICON_URL = SITE_BASE + 'assets/telegram.png';
+
   // Inline SVG icons for theme toggle
   const sunSVG = `
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -46,13 +59,13 @@
   const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl';
   document.querySelectorAll('#telegramLink,#footerTelegram').forEach(a => a && (a.href = TELEGRAM_URL));
 
-  // Make header Telegram button icon-only using PNG at assets/telegram.png
+  // Make header Telegram button icon-only using a robust PNG path
   const headerTg = document.getElementById('telegramLink');
   if (headerTg){
     headerTg.classList.add('icon-btn'); // keeps .btn.primary styles
     headerTg.setAttribute('aria-label', 'Open Telegram channel');
     headerTg.setAttribute('title', 'Open Telegram channel');
-    headerTg.innerHTML = `<span class="sr-only">Open Telegram channel</span><img src="assets/telegram.png" alt="" />`;
+    headerTg.innerHTML = `<span class="sr-only">Open Telegram channel</span><img src="${TG_ICON_URL}" alt="" />`;
   }
 
   // Centralize CONTACT email across all pages
@@ -64,6 +77,18 @@
       a.title = 'Email ' + CONTACT_EMAIL;
     }
   });
+
+  // Simple search filter for topic cards (homepage)
+  const search = document.getElementById('search');
+  if (search) {
+    search.addEventListener('input', (e)=>{
+      const q = e.target.value.trim().toLowerCase();
+      document.querySelectorAll('.topic-card').forEach(card=>{
+        const text = (card.innerText + ' ' + (card.getAttribute('data-tags')||'')).toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  }
 
   // Reading progress bar
   const progress = document.getElementById('readProgress');
