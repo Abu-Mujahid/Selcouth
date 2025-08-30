@@ -4,112 +4,161 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Selcouth | سيلكوت — Truth shall always prevail.</title>
-  <meta name="description" content="Selcouth | سيلكوت — A space for thoughtful, evidence-minded exploration of holistic health. Truth shall always prevail." />
-  <link rel="icon" href="assets/logo.svg" />
+  <meta name="description" content="Selcouth | سيلكوت — A modern hub for holistic health perspectives, careful inquiry, and transparent sourcing. Truth shall always prevail." />
+  <link rel="icon" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="./">
-      <img src="assets/logo.svg" alt="Selcouth logo" class="logo"/>
+      <img src="assets/selcouth-wordmark.png" alt="Selcouth | سيلكوت" class="logo" onerror="this.style.display='none'"/>
       <span class="brand-text">Selcouth <span class="divider">|</span> سيلكوت</span>
     </a>
-
     <nav class="site-actions">
-      <button id="langToggle" class="btn" aria-label="Toggle language">AR</button>
       <button id="themeToggle" class="btn" aria-label="Toggle dark mode">Dark</button>
-      <a id="telegramLink" class="btn primary" href="#" target="_blank" rel="noopener">Telegram</a>
+      <a id="telegramLink" class="btn primary" href="https://t.me/+IQ-KS8czLp4wMGVl" target="_blank" rel="noopener">Telegram</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1 data-i18n="hero_title">Selcouth | سيلكوت</h1>
-      <p class="tagline" data-i18n="tagline">Truth shall always prevail.</p>
+      <h1>Selcouth <span class="divider">|</span> سيلكوت</h1>
+      <p class="tagline">Truth shall always prevail.</p>
 
-      <p class="intro" data-i18n="intro_paragraph_1">
-        “Selcouth” means rare, unfamiliar, and wondrous—inviting curiosity. We explore whole‑person health with care and clarity.
-      </p>
-      <p class="intro" data-i18n="intro_paragraph_2">
-        We examine holistic perspectives, encourage discernment, and value transparent sourcing. Nothing here is medical advice—please consult qualified professionals.
-      </p>
+      <div class="intro">
+        <p>
+          “Selcouth” is an old word meaning rare, unfamiliar, and wondrous—something seldom seen that invites curiosity.
+          This spirit guides the channel: we examine the whole human—body, mind, environment, and community—asking careful questions where easy answers are common.
+        </p>
+        <p>
+          Here you’ll find perspectives on holistic health, critical reviews of prevailing narratives in medical science, and investigations into incentives that shape public claims.
+          We value clarity, primary sources, and respectful debate. Nothing here is medical advice—use these materials for education, and consult qualified professionals for personal decisions.
+        </p>
+      </div>
 
       <div class="cta-group">
-        <a href="#topics" class="btn primary" data-i18n="cta_explore_topics">Explore Topics</a>
-        <a href="#about" class="btn" data-i18n="cta_learn_more">Learn More</a>
+        <a href="#topics" class="btn primary">Explore Topics</a>
+        <a href="#about" class="btn">Learn More</a>
       </div>
     </section>
 
     <section class="search-section">
-      <label for="search" class="sr-only" data-i18n="search_label">Search topics</label>
-      <input id="search" type="search" placeholder="Search topics..." data-i18n-placeholder="search_placeholder" />
+      <label for="search" class="sr-only">Search topics</label>
+      <input id="search" type="search" placeholder="Search topics..." />
     </section>
 
     <section id="topics" class="topics-grid">
-      <article class="topic-card" data-tags="foundations basics principles">
-        <h3><a href="topics/foundations.html" data-i18n="topic_foundations">Foundations of Holistic Health</a></h3>
-        <p data-i18n="topic_foundations_desc">Core principles, frameworks, and how to think clearly about wellbeing.</p>
+      <article class="topic-card" data-tags="general overview intro">
+        <h3><a href="topics/general.html">General</a></h3>
+        <p>Channel updates, site notes, and cross-topic posts.</p>
       </article>
 
-      <article class="topic-card" data-tags="nutrition diet metabolic">
-        <h3><a href="#" data-i18n="topic_nutrition">Nutrition & Metabolic Health</a></h3>
-        <p data-i18n="topic_nutrition_desc">Food quality, metabolism, and practical, evidence-minded guides.</p>
+      <article class="topic-card" data-tags="cancer cure oncology">
+        <h3><a href="topics/cancer-and-cure.html">Cancer &amp; Cure</a></h3>
+        <p>Hypotheses, mechanisms, lifestyle factors, and research reads.</p>
       </article>
 
-      <article class="topic-card" data-tags="sleep circadian rhythm">
-        <h3><a href="#" data-i18n="topic_sleep">Sleep & Circadian Rhythm</a></h3>
-        <p data-i18n="topic_sleep_desc">Rest, light, and recovery for long-term vitality.</p>
+      <article class="topic-card" data-tags="terrain toxicity toxins">
+        <h3><a href="topics/terrain-and-toxicity.html">Terrain &amp; Toxicity</a></h3>
+        <p>Internal terrain, exposures, detox approaches, and context.</p>
       </article>
 
-      <article class="topic-card" data-tags="movement breath exercise">
-        <h3><a href="#" data-i18n="topic_movement">Movement & Breath</a></h3>
-        <p data-i18n="topic_movement_desc">Approaches to movement, breathing, and posture.</p>
+      <article class="topic-card" data-tags="circadian nn-emf emf radiation light">
+        <h3><a href="topics/circadian-emf-radiation.html">Circadian biology, nn‑EMFs &amp; Radiation</a></h3>
+        <p>Light, timing, and non‑native EMF considerations.</p>
       </article>
 
-      <article class="topic-card" data-tags="mindfulness stress mental">
-        <h3><a href="#" data-i18n="topic_mindfulness">Mindfulness & Mental Wellbeing</a></h3>
-        <p data-i18n="topic_mindfulness_desc">Mind-body practices and skills for resilience.</p>
+      <article class="topic-card" data-tags="refutations critique analysis">
+        <h3><a href="topics/medical-refutations.html">Medical Refutations</a></h3>
+        <p>Point‑by‑point responses to common claims.</p>
       </article>
 
-      <article class="topic-card" data-tags="environment toxins detox">
-        <h3><a href="#" data-i18n="topic_environment">Environmental Health & Detox</a></h3>
-        <p data-i18n="topic_environment_desc">Air, water, materials, and practical exposure reduction.</p>
+      <article class="topic-card" data-tags="books documentaries media">
+        <h3><a href="topics/books-and-documentaries.html">Books &amp; Documentaries</a></h3>
+        <p>Summaries, highlights, and discussion prompts.</p>
       </article>
 
-      <article class="topic-card" data-tags="herbal remedies traditional">
-        <h3><a href="#" data-i18n="topic_herbal">Herbal & Traditional Remedies</a></h3>
-        <p data-i18n="topic_herbal_desc">Traditions, safety considerations, and source transparency.</p>
+      <article class="topic-card" data-tags="pandemic vaccines policy">
+        <h3><a href="topics/scamdemics-and-vaccines.html">Scamdemics &amp; Vaccines</a></h3>
+        <p>Policy analysis, risk framing, and evidence reviews.</p>
       </article>
 
-      <article class="topic-card" data-tags="research evidence studies">
-        <h3><a href="#" data-i18n="topic_research">Research & Evidence Reviews</a></h3>
-        <p data-i18n="topic_research_desc">Methodology, data literacy, and balanced summaries.</p>
+      <article class="topic-card" data-tags="holism nutrition lifestyle">
+        <h3><a href="topics/nourishing-holism.html">Nourishing Holism</a></h3>
+        <p>Foundations for resilient, whole‑person wellbeing.</p>
       </article>
 
-      <article class="topic-card" data-tags="industry policy analysis">
-        <h3><a href="#" data-i18n="topic_policy">Industry & Policy Analysis</a></h3>
-        <p data-i18n="topic_policy_desc">Incentives, regulation, and interpreting public claims.</p>
+      <article class="topic-card" data-tags="them analysis incentives power">
+        <h3><a href="topics/them.html">Them…</a></h3>
+        <p>Incentives, players, and systems shaping narratives.</p>
       </article>
 
-      <article class="topic-card" data-tags="community stories q&a">
-        <h3><a href="#" data-i18n="topic_community">Community Stories & Q&amp;A</a></h3>
-        <p data-i18n="topic_community_desc">Experiences, reflections, and thoughtful discussion.</p>
+      <article class="topic-card" data-tags="biochemical interferers disruptors">
+        <h3><a href="topics/biochemical-interferers.html">Biochemical Interferers</a></h3>
+        <p>Endocrine disruptors and other molecular interferences.</p>
+      </article>
+
+      <article class="topic-card" data-tags="vitamins supplements micronutrients">
+        <h3><a href="topics/vitamins-and-supplements.html">Vitamins &amp; Supplements</a></h3>
+        <p>Roles, forms, sourcing, and safety notes.</p>
+      </article>
+
+      <article class="topic-card" data-tags="symptoms root cause systems thinking">
+        <h3><a href="topics/symptoms-vs-root-cause.html">Symptoms vs Root Cause</a></h3>
+        <p>Frameworks for investigation and prioritization.</p>
+      </article>
+
+      <article class="topic-card" data-tags="lymph detox circulation">
+        <h3><a href="topics/lymphatic-system.html">The Lymphatic System</a></h3>
+        <p>Movement, drainage, and practical support.</p>
+      </article>
+
+      <article class="topic-card" data-tags="germ theory virology critique">
+        <h3><a href="topics/germ-theory-and-vir-lie-ogy.html">Germ Theory &amp; Vir‑Lie‑ogy</a></h3>
+        <p>Claims, methods, and alternative interpretations.</p>
+      </article>
+
+      <article class="topic-card" data-tags="homestead hive community">
+        <h3><a href="topics/homestead-hive.html">Homestead Hive</a></h3>
+        <p>Food sovereignty, skills, and local resilience.</p>
+      </article>
+
+      <article class="topic-card" data-tags="natural healing recovery">
+        <h3><a href="topics/natural-healing.html">Natural Healing</a></h3>
+        <p>Supportive practices and case reflections.</p>
+      </article>
+
+      <article class="topic-card" data-tags="dentistry oral microbiome">
+        <h3><a href="topics/holistic-dentistry.html">Holistic Dentistry</a></h3>
+        <p>Materials, procedures, and systemic links.</p>
+      </article>
+
+      <article class="topic-card" data-tags="nutrition offstream ancestral">
+        <h3><a href="topics/offstream-nutrition.html">Offstream Nutrition</a></h3>
+        <p>Nutritional ideas outside the mainstream.</p>
+      </article>
+
+      <article class="topic-card" data-tags="modern diseases chronic">
+        <h3><a href="topics/modern-diseases.html">Modern Diseases</a></h3>
+        <p>Patterns, drivers, and prevention lenses.</p>
+      </article>
+
+      <article class="topic-card" data-tags="heart lungs cardiopulmonary">
+        <h3><a href="topics/heart-and-lungs.html">The Heart &amp; the Lungs</a></h3>
+        <p>Function, hypotheses, and practical foundations.</p>
       </article>
     </section>
 
     <section id="about" class="about">
-      <h2 data-i18n="about_title">About Selcouth</h2>
-      <p data-i18n="about_body_1">
-        Our goal is to present clear, considerate insights into holistic health and to encourage evidence-minded inquiry.
-      </p>
-      <p data-i18n="about_body_2">
-        We include sources, describe uncertainties, and welcome respectful dialogue. For personal health decisions, consult qualified professionals.
+      <h2>About Selcouth</h2>
+      <p>
+        Selcouth surfaces perspectives that are rare and often overlooked. We encourage evidence‑minded inquiry,
+        transparent sourcing, and critical thinking—without hostility. You’ll find key takeaways, links to sources, and space for discussion.
       </p>
       <div class="note" role="note">
-        <strong data-i18n="disclaimer_title">Disclaimer:</strong>
-        <span data-i18n="disclaimer_text">This site is educational and not medical advice. Always consult a qualified professional.</span>
+        <strong>Disclaimer:</strong> Educational content only; not medical advice. Always consult qualified professionals for personal health decisions.
       </div>
     </section>
   </main>
@@ -119,13 +168,12 @@
   <footer class="site-footer">
     <p>&copy; <span id="year"></span> Selcouth | سيلكوت</p>
     <nav class="footer-nav">
-      <a href="#about" data-i18n="footer_about">About</a>
-      <a href="#" id="footerTelegram" data-i18n="footer_telegram">Telegram</a>
-      <a href="#" data-i18n="footer_contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="https://t.me/+IQ-KS8czLp4wMGVl" id="footerTelegram" target="_blank" rel="noopener">Telegram</a>
+      <a href="mailto:contact@selcouth.io">Contact</a>
     </nav>
   </footer>
 
-  <script src="scripts/i18n.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>
