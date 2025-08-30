@@ -42,14 +42,14 @@
     });
   }
 
-  // Telegram links (private channel invite)
+  // Telegram links (private invite)
   const TELEGRAM_URL = 'https://t.me/+IQ-KS8czLp4wMGVl';
   document.querySelectorAll('#telegramLink,#footerTelegram').forEach(a => a && (a.href = TELEGRAM_URL));
 
   // Make header Telegram button icon-only using PNG at assets/telegram.png
   const headerTg = document.getElementById('telegramLink');
   if (headerTg){
-    headerTg.classList.add('icon-btn'); // keeps .btn.primary styles from HTML
+    headerTg.classList.add('icon-btn'); // keeps .btn.primary styles
     headerTg.setAttribute('aria-label', 'Open Telegram channel');
     headerTg.setAttribute('title', 'Open Telegram channel');
     headerTg.innerHTML = `<span class="sr-only">Open Telegram channel</span><img src="assets/telegram.png" alt="" />`;
@@ -64,18 +64,6 @@
       a.title = 'Email ' + CONTACT_EMAIL;
     }
   });
-
-  // Simple search filter for topic cards (homepage)
-  const search = document.getElementById('search');
-  if (search) {
-    search.addEventListener('input', (e)=>{
-      const q = e.target.value.trim().toLowerCase();
-      document.querySelectorAll('.topic-card').forEach(card=>{
-        const text = (card.innerText + ' ' + (card.getAttribute('data-tags')||'')).toLowerCase();
-        card.style.display = text.includes(q) ? '' : 'none';
-      });
-    });
-  }
 
   // Reading progress bar
   const progress = document.getElementById('readProgress');
@@ -120,9 +108,9 @@
     });
   }
 
-  // Reveal-on-scroll animations
+  // Reveal-on-scroll animations (added .post-card)
   const revealEls = document.querySelectorAll(
-    '.topic-card, .cta-group .btn, .hero .intro p, .about, .article .key-takeaways, .article .content, .article .sources'
+    '.topic-card, .post-card, .cta-group .btn, .hero .intro p, .about, .article .key-takeaways, .article .content, .article .sources'
   );
   if ('IntersectionObserver' in window && revealEls.length){
     const obs = new IntersectionObserver((entries, o)=>{
@@ -133,7 +121,10 @@
         }
       });
     }, {rootMargin: '0px 0px -10% 0px', threshold: 0.1});
-    revealEls.forEach(el=>{ el.classList.add('reveal'); obs.observe(el); });
+    revealEls.forEach(el=>{
+      el.classList.add('reveal');
+      obs.observe(el);
+    });
   } else {
     revealEls.forEach(el=>el.classList.add('is-visible'));
   }
