@@ -7,21 +7,23 @@
   <link rel="icon" href="../../assets/favicon.svg" />
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    /* Compact Instagram Reel embed (portrait 9:16), centered and not full-width */
+    /* Compact Instagram Reel embed (portrait 9:16), centered and bounded */
     .social-embed{
-      position:relative;
-      width:min(100%, 360px);   /* much smaller than full page; tweak if you want */
-      padding-top:177.78%;      /* 9:16 aspect ratio (height = 1.7778 * width) */
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      margin:12px auto 18px;    /* center on the page */
+      position: relative;
+      width: clamp(240px, 60vw, 360px); /* smaller and responsive */
+      aspect-ratio: 9 / 16;            /* correct portrait ratio without extra height */
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin: 12px auto 18px;          /* center on the page */
+      max-height: 80vh;                 /* never exceed viewport height */
     }
     .social-embed iframe{
-      position:absolute; inset:0; width:100%; height:100%;
-      border:0; border-radius:12px; background:#000;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: 0; border-radius: 12px; background: #000;
     }
   </style>
 </head>
@@ -86,6 +88,5 @@
   </footer>
 
   <script src="../../scripts/main.js"></script>
-  <!-- No instagram embed.js needed for the iframe approach -->
 </body>
 </html>
