@@ -10,7 +10,7 @@
     /* simple, responsive 3-up gallery */
     .gallery{display:grid;gap:8px;margin:8px 0 16px}
     .gallery-3{grid-template-columns:repeat(3,1fr)}
-    .gallery img{width:100%;height:auto;border:1px solid var(--border);border-radius:10px;display:block}
+    .gallery img{width:100%;height:auto;border:1px solid var(--border);border-radius:10px;display:block;cursor:zoom-in}
     @media (max-width: 820px){.gallery-3{grid-template-columns:repeat(2,1fr)}}
     @media (max-width: 520px){.gallery-3{grid-template-columns:1fr}}
   </style>
@@ -39,9 +39,9 @@
         <figure class="gallery gallery-3">
           <!-- These paths assume the three uploaded images are saved under /assets/.
                If your filenames/paths differ, tell me and I’ll update the src attributes. -->
-          <img src="../../assets/lake-michigan-1.jpg" alt="Lake Michigan shoreline with murky brown water, foam, debris and many dead fish near rocks." />
-          <img src="../../assets/lake-michigan-2.jpg" alt="Clear blue side of Lake Michigan water near the pier." />
-          <img src="../../assets/lake-michigan-3.jpg" alt="Pier dividing two sides of the lake showing a stark contrast between murky and clear water." />
+          <img class="lightboxable" src="../../assets/lake-michigan-1.jpg" alt="Lake Michigan shoreline with murky brown water, foam, debris and many dead fish near rocks." />
+          <img class="lightboxable" src="../../assets/lake-michigan-2.jpg" alt="Clear blue side of Lake Michigan water near the pier." />
+          <img class="lightboxable" src="../../assets/lake-michigan-3.jpg" alt="Pier dividing two sides of the lake showing a stark contrast between murky and clear water." />
         </figure>
 
         <p>
