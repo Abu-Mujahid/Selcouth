@@ -153,4 +153,58 @@
   } else {
     revealEls.forEach(el=>el.classList.add('is-visible'));
   }
+
+  // Lightweight image lightbox (opens images in-page instead of a new tab)
+  (function initLightbox(){
+    const imgs = Array.from(document.querySelectorAll('img.lightboxable'));
+    if (!imgs.length) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.innerHTML = `
+      <button class="lightbox-close" aria-label="Close image">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <img class="lightbox-img" alt="" />
+    `;
+    document.body.appendChild(overlay);
+
+    const imgEl = overlay.querySelector('.lightbox-img');
+    const btnClose = overlay.querySelector('.lightbox-close');
+    let current = -1;
+
+    function openAt(index){
+      current = index;
+      const src = imgs[index].getAttribute('data-fullsrc') || imgs[index].src;
+      imgEl.src = src;
+      imgEl.alt = imgs[index].alt || '';
+      overlay.classList.add('is-open');
+      document.body.classList.add('lightbox-open');
+    }
+    function close(){
+      overlay.classList.remove('is-open');
+      document.body.classList.remove('lightbox-open');
+      imgEl.src = '';
+      current = -1;
+    }
+    function onKey(e){
+      if (current < 0) return;
+      if (e.key === 'Escape') close();
+      // Optional: navigate with arrow keys among the three images
+      if (e.key === 'ArrowRight') openAt((current + 1) % imgs.length);
+      if (e.key === 'ArrowLeft') openAt((current - 1 + imgs.length) % imgs.length);
+    }
+
+    imgs.forEach((img, i) => {
+      img.addEventListener('click', () => openAt(i));
+    });
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) close();
+    });
+    imgEl.addEventListener('click', (e)=> e.stopPropagation());
+    btnClose.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+  })();
 })();
