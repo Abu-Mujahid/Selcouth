@@ -3,27 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Is the Heart a Pump? Short Note + Reel — Selcouth | سيلكوت</title>
+  <title>Is the Heart a Pump? — Selcouth | سيلكوت</title>
   <link rel="icon" href="../../assets/favicon.svg" />
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    /* Responsive Instagram embed (Reels are 9:16 portrait) */
+    /* Compact Instagram Reel embed (portrait 9:16), centered and not full-width */
     .social-embed{
       position:relative;
-      width:100%;
-      padding-top:177.78%; /* portrait aspect */
+      width:min(100%, 360px);   /* much smaller than full page; tweak if you want */
+      padding-top:177.78%;      /* 9:16 aspect ratio (height = 1.7778 * width) */
       background:var(--surface);
       border:1px solid var(--border);
       border-radius:12px;
       box-shadow:var(--shadow);
       overflow:hidden;
-      margin:12px 0 18px;
+      margin:12px auto 18px;    /* center on the page */
     }
     .social-embed iframe{
       position:absolute; inset:0; width:100%; height:100%;
       border:0; border-radius:12px; background:#000;
     }
-    .fallback-embed{margin:12px 0 18px}
   </style>
 </head>
 <body>
@@ -42,12 +41,12 @@
     <article>
       <header class="article-header">
         <p class="meta"><a href="../heart-and-lungs.html">← Back to The Heart &amp; the Lungs</a></p>
-        <h1>Is the Heart a Pump? Short Note + Reel</h1>
+        <h1>Is the Heart a Pump?</h1>
         <div class="meta"><time datetime="2025-08-31">Aug 31, 2025</time> • <span id="readingTime"></span></div>
       </header>
 
       <section class="content">
-        <!-- On‑page Instagram video (no need to open the app) -->
+        <!-- On‑page Instagram video (no need to open the app); single compact embed -->
         <div class="social-embed" role="region" aria-label="Embedded Instagram reel">
           <iframe
             src="https://www.instagram.com/reel/C-vNsm0tIge/embed"
@@ -55,13 +54,6 @@
             loading="lazy"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
           </iframe>
-        </div>
-
-        <!-- Fallback embed (if iframe is blocked) -->
-        <div class="fallback-embed">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C-vNsm0tIge/" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; max-width:658px; padding:0; width:100%">
-          </blockquote>
-          <p><small>If the video doesn’t load, <a href="https://www.instagram.com/reel/C-vNsm0tIge/?igsh=MWQ5YW85N3kydWJudQ==" target="_blank" rel="noopener nofollow">open it on Instagram</a>.</small></p>
         </div>
 
         <p>One of the lies we're told is that the Heart is a Pump!</p>
@@ -94,6 +86,6 @@
   </footer>
 
   <script src="../../scripts/main.js"></script>
-  <script async src="https://www.instagram.com/embed.js"></script>
+  <!-- No instagram embed.js needed for the iframe approach -->
 </body>
 </html>
