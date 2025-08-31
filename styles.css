@@ -178,6 +178,7 @@ img{max-width:100%;display:block}
 }
 
 /* -------- Image Lightbox (site-internal viewer) -------- */
+img.lightboxable{cursor:zoom-in}
 body.lightbox-open{overflow:hidden}
 .lightbox-overlay{
   position:fixed;inset:0;
