@@ -176,3 +176,32 @@ img{max-width:100%;display:block}
   .site-actions{gap:8px}
   .btn{padding:8px 10px}
 }
+
+/* -------- Image Lightbox (site-internal viewer) -------- */
+body.lightbox-open{overflow:hidden}
+.lightbox-overlay{
+  position:fixed;inset:0;
+  display:none;align-items:center;justify-content:center;
+  padding:24px;z-index:1000;
+  background:rgba(0,0,0,.55);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+}
+.lightbox-overlay.is-open{display:flex}
+.lightbox-img{
+  max-width:min(96vw,1200px);
+  max-height:92vh;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  box-shadow:0 25px 80px rgba(0,0,0,.55);
+  object-fit:contain;
+}
+.lightbox-close{
+  position:absolute;top:16px;left:16px;
+  width:40px;height:40px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(0,0,0,.55);color:#fff;cursor:pointer;
+  display:grid;place-items:center;
+}
+.lightbox-close svg{width:18px;height:18px;display:block}
